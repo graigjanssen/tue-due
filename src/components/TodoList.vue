@@ -2,8 +2,9 @@
   <AddTodoItem @add-todo="addTodo"/>
   <ul v-if="todos.length > 0">
     <Todo-item
-      v-for="(todo, index) in todos"
-      :key="index"
+      v-for="todo in todos"
+      :key="todo.id"
+      :id="todo.id"
       :title="todo.title"
       :description="todo.description"
       @remove="removeTodo"
@@ -29,12 +30,11 @@ export default defineComponent({
     }
   },
   methods: {
-    addTodo (todo: Todo) {
+    addTodo (todo: Todo): void {
       this.todos.push(todo);
     },
-    removeTodo () {
-      console.log('removeTodo!');
-      
+    removeTodo (id: number): void {
+      this.todos = this.todos.filter((todo: Todo) => todo.id !== id);
     }
   }
 })

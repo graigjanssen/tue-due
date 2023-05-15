@@ -18,7 +18,8 @@ export default defineComponent({
     return {
       title: '',
       description: '',
-      errorMessage: '' 
+      errorMessage: '',
+      nextId: 1 
     }
   },
   methods: {
@@ -27,6 +28,7 @@ export default defineComponent({
         this.errorMessage = 'Title is required';
       } else {
         const todo: Todo = {
+          id: this.nextId,
           title: this.title,
           description: this.description
         };
@@ -34,6 +36,7 @@ export default defineComponent({
         this.title = '';
         this.description = '';
         this.errorMessage = '';
+        this.nextId++;
       }
     }
   }

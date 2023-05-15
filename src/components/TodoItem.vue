@@ -1,6 +1,6 @@
 <template>
   <div class="todo-item">
-    <h3>{{title}}</h3>
+    <h3 :class="status.toLowerCase()">{{title}}</h3>
     <h5>Status: {{status}}</h5>
     <p>{{description}}</p>
     <div class="actions">
@@ -15,6 +15,10 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
+    id: {
+      type: Number,
+      required: true
+    },
     title: {
       type: String,
       required: true,
@@ -39,8 +43,13 @@ export default defineComponent({
       this.status = this.targetStatus;
     },
     remove() {
-      this.$emit('remove');
+      this.$emit('remove', this.id);
     }
   }
 })
 </script>
+<style scoped>
+.complete {
+  text-decoration: line-through;
+}
+</style>
