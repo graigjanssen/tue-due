@@ -10,15 +10,14 @@
 </template>
 
 <script lang="ts">
-
+import { defineComponent } from 'vue';
 import { Todo } from '@/types/Todo';
 
-export default {
+export default defineComponent({
   data() {
     return {
       title: '',
       description: '',
-      status: 'Incomplete',
       errorMessage: '' 
     }
   },
@@ -29,8 +28,7 @@ export default {
       } else {
         const todo: Todo = {
           title: this.title,
-          description: this.description,
-          status: 'Incomplete'
+          description: this.description
         };
         this.$emit('add-todo', todo);
         this.title = '';
@@ -39,5 +37,5 @@ export default {
       }
     }
   }
-}
+})
 </script>

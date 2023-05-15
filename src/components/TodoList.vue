@@ -6,7 +6,7 @@
       :key="index"
       :title="todo.title"
       :description="todo.description"
-      :status="todo.status"
+      @remove="removeTodo"
     />
   </ul>
   <p v-else>Your TueDue list is empty!</p>
@@ -31,6 +31,10 @@ export default defineComponent({
   methods: {
     addTodo (todo: Todo) {
       this.todos.push(todo);
+    },
+    removeTodo () {
+      console.log('removeTodo!');
+      
     }
   }
 })
