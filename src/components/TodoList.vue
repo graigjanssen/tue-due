@@ -1,16 +1,18 @@
 <template>
   <AddTodoItem @add-todo="addTodo"/>
-  <ul v-if="todos.length > 0">
-    <Todo-item
-      v-for="todo in todos"
-      :key="todo.id"
-      :id="todo.id"
-      :title="todo.title"
-      :description="todo.description"
-      @remove="removeTodo"
-    />
-  </ul>
-  <p v-else>Your TueDue list is empty!</p>
+  <div id="todo-list">
+    <div v-if="todos.length > 0">
+      <Todo-item
+        v-for="todo in todos"
+        :key="todo.id"
+        :id="todo.id"
+        :title="todo.title"
+        :description="todo.description"
+        @remove="removeTodo"
+      />
+    </div>
+    <p class="empty-list" v-else>Your TueDue list is empty!</p>
+  </div>
 </template>
 
 <script lang="ts">

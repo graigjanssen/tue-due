@@ -1,12 +1,13 @@
 <template>
-  <h3>Create TueDue</h3>
-  <form @submit.prevent="addTodo" novalidate>
-    <input v-model="title" type="text" placeholder="Title" required>
-    <input v-model="description" type="text" placeholder="Description">
-    <span v-if="errorMessage">{{errorMessage}}</span>
-    <button type="submit">Add</button>
-    
-  </form>
+  <div id="add-todo">
+    <h2>Create TueDue</h2>
+    <form @submit.prevent="addTodo" novalidate>
+      <input v-model="title" type="text" placeholder="Title" required>
+      <textarea rows="2" v-model="description" type="text" placeholder="Description"/>
+      <span class="error" v-if="errorMessage">{{errorMessage}}</span>
+      <button type="submit">Add</button>
+    </form>
+  </div>
 </template>
 
 <script lang="ts">

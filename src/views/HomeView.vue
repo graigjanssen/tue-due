@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <h1>TueDue</h1>
-    <h5>The Vue app just for doing stuff on Tuesday</h5>
+    <header class="header">
+      <h1 class="title">TueDue</h1>
+      <h5 class="subtitle">The Vue app just for doing stuff on Tuesday</h5>
+    </header>
     <TodoList />
   </div>
 </template>

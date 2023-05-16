@@ -1,11 +1,12 @@
 <template>
   <div class="todo-item">
-    <h3 :class="status.toLowerCase()">{{title}}</h3>
-    <h5>Status: {{status}}</h5>
-    <p>{{description}}</p>
+    <div class="item-info">
+      <h3 :class="status.toLowerCase()">{{title}}</h3>
+      <p>{{description}}</p>
+    </div>
     <div class="actions">
-      <button @click="markDone">Mark as {{ targetStatus }}</button>
-      <button @click="remove">Remove</button>
+      <button class="btn-done" @click="markDone">Mark as {{ targetStatus }}</button>
+      <button class="btn-remove" @click="remove">Remove</button>
     </div>
   </div>
 </template>
